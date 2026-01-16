@@ -251,7 +251,7 @@ body {
 }
 
 .donation-content {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -266,23 +266,53 @@ body {
     opacity: 0.9;
 }
 
-.qr-container {
+.donation-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.donation-option {
     background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
-    border-radius: 10px;
-    margin-top: 2rem;
+    border-radius: 12px;
     backdrop-filter: blur(10px);
+    transition: var(--transition);
 }
 
-.payment-method {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 1rem 0;
+.donation-option:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
 }
 
-.contact-admin {
+.donation-option h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: white;
+}
+
+.donation-option p {
     font-size: 0.95rem;
-    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.qr-placeholder {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 1.5rem 0;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-note {
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 /* ============================================
