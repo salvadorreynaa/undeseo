@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Deseo - UnDeseo</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/build/index.min.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="../index.html" style="color: white; text-decoration: none;">UnDeseo</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="about.html">Sobre el Proyecto</a></li>
+                    <li><a href="deseos.html">Deseos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Comparte tu Deseo</h2>
+                    <p>Rellena el formulario y envía tu información</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO -->
+        <section class="form-section">
+            <div class="container">
+                <!-- PROGRESS BAR -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text">Paso <span id="stepNumber">1</span> de 5</p>
+                </div>
+
+                <!-- FORMULARIO -->
+                <form id="wishForm" class="wish-form">
+                    <!-- PASO 1: DATOS PERSONALES -->
+                    <div class="form-step active" id="step1">
+                        <h3>Tu Información Personal</h3>
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pais">País o Ciudad *</label>
+                            <input type="text" id="pais" name="pais" placeholder="Ej: Lima, Perú" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="celular">Número de Celular *</label>
+                            <input type="tel" id="celular" name="celular" placeholder="Ej: +51 999 999 999" required>
+                        </div>
+                        <button type="button" class="btn-next" onclick="nextStep()">Siguiente</button>
+                    </div>
+
+                    <!-- PASO 2: REDES SOCIALES -->
+                    <div class="form-step" id="step2">
+                        <h3>Tus Redes Sociales (Opcional)</h3>
+                        <p class="step-info">Comparte tus redes si quieres que otros usuarios te contacten</p>
+                        <div class="form-group">
+                            <label for="instagram">Instagram</label>
+                            <input type="text" id="instagram" name="instagram" placeholder="@tuinstagram (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="tiktok">TikTok</label>
+                            <input type="text" id="tiktok" name="tiktok" placeholder="@tutiktok (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="text" id="linkedin" name="linkedin" placeholder="Tu perfil de LinkedIn (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="otro">Otra Red Social</label>
+                            <input type="text" id="otro" name="otro" placeholder="Ej: YouTube, Twitter, etc (opcional)">
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Atrás</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <!-- PASO 3: TU DESEO -->
+                    <div class="form-step" id="step3">
+                        <h3>Tu Deseo u Objetivo</h3>
+                        <div class="form-group">
+                            <label for="deseo">¿Cuál es tu deseo? *</label>
+                            <input type="text" id="deseo" name="deseo" placeholder="Ej: Aprender programación, Viajar a Japón, Escribir un libro" required>
+                            <small>Sé específico y claro. Un deseo por persona.</small>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Atrás</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <!-- PASO 4: HISTORIA PERSONAL -->
+                    <div class="form-step" id="step4">
+                        <h3>Tu Historia Personal</h3>
+                        <div class="form-group">
+                            <label for="historia">Cuéntanos tu historia *</label>
+                            <textarea id="historia" name="historia" placeholder="¿Por qué este deseo es importante para ti? ¿Qué te motiva? Cuéntanos tu sueño detrás de esto..." required rows="6"></textarea>
+                            <small>Sé auténtico y honesto. Los mejores perfiles son los que cuentan historias reales.</small>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Atrás</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <!-- PASO 5: FOTO Y ENVÍO -->
+                    <div class="form-step" id="step5">
+                        <h3>Tu Foto (Opcional)</h3>
+                        <div class="form-group">
+                            <label for="foto">Sube tu foto</label>
+                            <div class="file-upload">
+                                <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImage()">
+                                <div class="file-label">
+                                    <span class="upload-icon">📸</span>
+                                    <p>Haz clic para subir una foto (Máximo 2 MB)</p>
+                                    <small>Formatos: JPG, PNG, WebP</small>
+                                </div>
+                            </div>
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+
+                        <div class="form-summary">
+                            <h4>Resumen de tu información:</h4>
+                            <div class="summary-item">
+                                <strong>Nombre:</strong> <span id="summaryNombre">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>Ubicación:</strong> <span id="summaryPais">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>Deseo:</strong> <span id="summaryDeseo">-</span>
+                            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Atrás</button>
+                            <button type="submit" class="btn-submit">📬 Enviar mi Deseo</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UnDeseo</h4>
+                    <p>Una plataforma para compartir deseos y objetivos personales</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="about.html">Sobre</a></li>
+                        <li><a href="deseos.html">Deseos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Enviar Deseo: <a href="mailto:enviar@undeseo.site">enviar@undeseo.site</a></p>
+                    <p>General: <a href="mailto:contacto@undeseo.site">contacto@undeseo.site</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UnDeseo. Todos los derechos reservados. | Sitio en desarrollo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/formulario.js"></script>
+</body>
+</html>
