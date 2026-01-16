@@ -2,12 +2,8 @@
 let currentStep = 1;
 const totalSteps = 5;
 
-// Inicializar EmailJS
-emailjs.init("Aoxo-KSDrkcZ61mNf");
-
 // Ir al siguiente paso
 function nextStep() {
-    // Validar paso actual
     if (validateStep(currentStep)) {
         if (currentStep < totalSteps) {
             document.getElementById(`step${currentStep}`).classList.remove('active');
@@ -43,32 +39,31 @@ function updateSummary() {
     if (currentStep === totalSteps) {
         document.getElementById('summaryNombre').textContent = document.getElementById('nombre').value || '-';
         document.getElementById('summaryPais').textContent = document.getElementById('pais').value || '-';
-        document.getElementById('summaryDeseo').textContent = document.getElementById('deseo').value || '-';
+        document.getElementById('summaryDeseo').textContent = document.getElementById('deseo').value.substring(0, 100) + '...' || '-';
     }
 }
 
 // Validar campos del paso
 function validateStep(step) {
     const fields = {
-        1: ['nombre', 'pais', 'celular'],
-        2: [],  // Opcional
+        1: ['nombre', 'email', 'pais', 'celular'],
+        2: [],
         3: ['deseo'],
         4: ['historia'],
-        5: []   // Foto es opcional
+        5: []
     };
 
-    const fieldsToValidate = fields[step] || [];
-    
-    for (let fieldId of fieldsToValidate) {
+    const fieldsToCheck = fields[step] || [];
+
+    for (let fieldId of fieldsToCheck) {
         const field = document.getElementById(fieldId);
         if (!field.value.trim()) {
             field.classList.add('error');
-            showNotification(`Por favor completa el campo "${field.previousElementSibling.textContent}"`, 'error');
+            showNotification(`⚠️ Por favor completa: ${field.previousElementSibling.textContent}`, 'error');
             return false;
-        } else {
-            field.classList.remove('error');
         }
     }
+
     return true;
 }
 
@@ -76,16 +71,15 @@ function validateStep(step) {
 function previewImage() {
     const file = document.getElementById('foto').files[0];
     const preview = document.getElementById('imagePreview');
-    
+
     if (file) {
-        // Validar tamaño
+        // Validar tamaño (2 MB máximo)
         if (file.size > 2 * 1024 * 1024) {
-            showNotification('La foto debe pesar menos de 2 MB', 'error');
+            showNotification('❌ La imagen debe ser menor a 2 MB', 'error');
             document.getElementById('foto').value = '';
-            preview.innerHTML = '';
             return;
         }
-        
+
         const reader = new FileReader();
         reader.onload = function(e) {
             preview.innerHTML = `
@@ -105,34 +99,36 @@ function removeImage() {
     document.getElementById('imagePreview').innerHTML = '';
 }
 
+// Copiar email al portapapeles
+function copiarEmail() {
+    const emailContent = document.getElementById('emailContent');
+    emailContent.select();
+    document.execCommand('copy');
+    showNotification('✅ Email copiado al portapapeles', 'success');
+}
+
 // Mostrar notificaciones
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.classList.add('show');
     }, 100);
-    
+
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => notification.remove(), 300);
     }, 4000);
 }
 
-// Manejar envío del formulario
-document.getElementById('wishForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    if (!validateStep(totalSteps)) {
-        return;
-    }
-    
-    // Recopilar datos
+// Generar contenido del email
+function generarEmail() {
     const formData = {
         nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
         pais: document.getElementById('pais').value,
         celular: document.getElementById('celular').value,
         instagram: document.getElementById('instagram').value || 'No proporcionó',
@@ -140,63 +136,68 @@ document.getElementById('wishForm').addEventListener('submit', async function(e)
         linkedin: document.getElementById('linkedin').value || 'No proporcionó',
         otro: document.getElementById('otro').value || 'No proporcionó',
         deseo: document.getElementById('deseo').value,
-        historia: document.getElementById('historia').value,
-        foto: document.getElementById('foto').value ? 'Sí - Adjuntada' : 'No'
+        historia: document.getElementById('historia').value
     };
-    
-    // Mostrar indicador de carga
-    showNotification('📤 Enviando tu deseo...', 'info');
-    const submitBtn = document.querySelector('.btn-submit');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Enviando...';
-    submitBtn.disabled = true;
-    
-    try {
-        // Enviar con EmailJS
-        const response = await emailjs.send(
-            'service_4qstdcm',
-            'template_h81e4jg',
-            {
-                to_email: 'enviar@undeseo.site',
-                nombre: formData.nombre,
-                pais: formData.pais,
-                celular: formData.celular,
-                instagram: formData.instagram,
-                tiktok: formData.tiktok,
-                linkedin: formData.linkedin,
-                otro: formData.otro,
-                deseo: formData.deseo,
-                historia: formData.historia,
-                foto: formData.foto
-            }
-        );
-        
-        // Éxito
-        showNotification('✅ ¡Deseo enviado correctamente!', 'success');
-        
-        // Limpiar localStorage
-        localStorage.removeItem('wishFormData');
-        
-        // Resetear formulario después de 2 segundos
-        setTimeout(() => {
-            document.getElementById('wishForm').reset();
-            currentStep = 1;
-            document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
-            document.getElementById('step1').classList.add('active');
-            updateProgress();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            document.getElementById('imagePreview').innerHTML = '';
-            
-            showNotification('📝 Formulario listo para un nuevo deseo', 'info');
-        }, 2000);
-        
-    } catch (error) {
-        console.error('Error al enviar:', error);
-        showNotification('❌ Error al enviar. Intenta de nuevo.', 'error');
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+
+    const emailBody = `Hola UnDeseo,
+
+Me gustaría ser parte de UnDeseo compartiendo mi deseo con la comunidad.
+
+=== DATOS PERSONALES ===
+Nombre: ${formData.nombre}
+Email: ${formData.email}
+País/Ciudad: ${formData.pais}
+Celular: ${formData.celular}
+
+=== REDES SOCIALES ===
+Instagram: ${formData.instagram}
+TikTok: ${formData.tiktok}
+LinkedIn: ${formData.linkedin}
+Otra Red: ${formData.otro}
+
+=== MI DESEO ===
+${formData.deseo}
+
+=== MI HISTORIA ===
+${formData.historia}
+
+---
+Enviado desde UnDeseo.site
+`;
+
+    return emailBody;
+}
+
+// Manejar envío del formulario
+document.getElementById('wishForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!validateStep(totalSteps)) {
+        return;
     }
+
+    // Generar el email
+    const emailContent = generarEmail();
+
+    // Mostrar el email en textarea
+    document.getElementById('emailContent').value = emailContent;
+
+    // Mostrar sección de preview
+    document.getElementById('emailPreview').style.display = 'block';
+
+    // Scroll a la sección de email
+    setTimeout(() => {
+        document.getElementById('emailPreview').scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+
+    // Guardar datos en localStorage
+    localStorage.setItem('wishFormData', JSON.stringify({
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        pais: document.getElementById('pais').value
+    }));
+
+    showNotification('📋 Email preparado - cópialo y envía a enviar@undeseo.site', 'info');
 });
 
 // Eliminar clase error cuando el usuario empieza a escribir

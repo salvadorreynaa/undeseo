@@ -57,6 +57,11 @@
                             <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
                         </div>
                         <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" placeholder="tu@gmail.com" required>
+                            <small>Usaremos este correo para contactarte si tu deseo es seleccionado</small>
+                        </div>
+                        <div class="form-group">
                             <label for="pais">País o Ciudad *</label>
                             <input type="text" id="pais" name="pais" placeholder="Ej: Lima, Perú" required>
                         </div>
@@ -150,9 +155,16 @@
                             </div>
                         </div>
 
+                        <div id="emailPreview" style="display: none;">
+                            <h4 style="margin-top: 2rem; color: var(--primary-color);">📧 Copia este contenido:</h4>
+                            <textarea id="emailContent" readonly style="width: 100%; height: 300px; padding: 1rem; border: 2px solid var(--border-color); border-radius: 8px; font-family: monospace; font-size: 0.9rem; margin-bottom: 1rem;"></textarea>
+                            <button type="button" class="btn-next" onclick="copiarEmail()" style="width: 100%; margin-bottom: 0.5rem;">📋 Copiar Email</button>
+                            <p style="color: var(--text-light); font-size: 0.9rem; text-align: center;">✅ Se copió a tu portapapeles<br>🌐 Abre Gmail y envía a: <strong>enviar@undeseo.site</strong></p>
+                        </div>
+
                         <div class="form-buttons">
                             <button type="button" class="btn-prev" onclick="prevStep()">Atrás</button>
-                            <button type="submit" class="btn-submit">📬 Enviar mi Deseo</button>
+                            <button type="submit" class="btn-submit">📬 Preparar Email</button>
                         </div>
                     </div>
                 </form>
@@ -189,7 +201,6 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/build/index.min.js"></script>
     <script src="../static/js/formulario.js"></script>
 </body>
 </html>
