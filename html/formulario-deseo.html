@@ -48,7 +48,11 @@
                 </div>
 
                 <!-- FORMULARIO -->
-                <form id="wishForm" class="wish-form">
+                <form id="wishForm" class="wish-form" action="https://formsubmit.co/enviar@undeseo.site" method="POST">
+                    <!-- Campos ocultos para FormSubmit -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://undeseo.site/success.html">
+                    
                     <!-- PASO 1: DATOS PERSONALES -->
                     <div class="form-step active" id="step1">
                         <h3>Tu Información Personal</h3>
@@ -155,16 +159,13 @@
                             </div>
                         </div>
 
-                        <div id="emailPreview" style="display: none;">
-                            <h4 style="margin-top: 2rem; color: var(--primary-color);">📧 Copia este contenido:</h4>
-                            <textarea id="emailContent" readonly style="width: 100%; height: 300px; padding: 1rem; border: 2px solid var(--border-color); border-radius: 8px; font-family: monospace; font-size: 0.9rem; margin-bottom: 1rem;"></textarea>
-                            <button type="button" class="btn-next" onclick="copiarEmail()" style="width: 100%; margin-bottom: 0.5rem;">📋 Copiar Email</button>
-                            <p style="color: var(--text-light); font-size: 0.9rem; text-align: center;">✅ Se copió a tu portapapeles<br>🌐 Abre Gmail y envía a: <strong>enviar@undeseo.site</strong></p>
+                        <div id="emailPreview" style="display: none; padding: 1.5rem; background: #e8f5e9; border-radius: 8px; text-align: center;">
+                            <p style="color: var(--text-light); font-size: 0.95rem; margin: 0;">✅ Tu formulario será enviado automáticamente</p>
                         </div>
 
                         <div class="form-buttons">
                             <button type="button" class="btn-prev" onclick="prevStep()">Atrás</button>
-                            <button type="submit" class="btn-submit">📬 Preparar Email</button>
+                            <button type="submit" class="btn-submit">📬 Enviar Deseo</button>
                         </div>
                     </div>
                 </form>

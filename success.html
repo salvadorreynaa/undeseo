@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Deseo Enviado! - UnDeseo</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+        .success-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 2rem;
+            text-align: center;
+        }
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .success-message h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .success-message p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        .success-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-success {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+        .btn-secondary {
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+        }
+        .btn-secondary:hover {
+            background-color: var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="index.html" style="color: white; text-decoration: none;">UnDeseo</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="html/about.html">Sobre el Proyecto</a></li>
+                    <li><a href="html/deseos.html">Deseos</a></li>
+                    <li><a href="html/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <!-- SECCIÓN DE ÉXITO -->
+        <section class="success-container">
+            <div class="container" style="max-width: 600px;">
+                <div class="success-icon">✅</div>
+                <div class="success-message">
+                    <h2>¡Tu Deseo Ha Sido Enviado!</h2>
+                    <p>Gracias por compartir tu sueño con la comunidad UnDeseo.</p>
+                    <p>Pronto nos pondremos en contacto contigo para confirmación.</p>
+                    <p style="margin-top: 1.5rem; color: var(--primary-color); font-weight: 600;">🎉 ¡Esperamos poder ayudarte a hacerlo realidad!</p>
+                </div>
+                <div class="success-actions">
+                    <a href="index.html" class="btn-success btn-primary">← Volver al Inicio</a>
+                    <a href="html/deseos.html" class="btn-success btn-secondary">Ver Otros Deseos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UnDeseo</h4>
+                    <p>Una plataforma para compartir deseos y objetivos personales</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="html/about.html">Sobre</a></li>
+                        <li><a href="html/deseos.html">Deseos</a></li>
+                        <li><a href="html/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Enviar Deseo: <a href="mailto:enviar@undeseo.site">enviar@undeseo.site</a></p>
+                    <p>General: <a href="mailto:contacto@undeseo.site">contacto@undeseo.site</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UnDeseo. Todos los derechos reservados. | Sitio en desarrollo</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

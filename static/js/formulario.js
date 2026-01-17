@@ -99,12 +99,9 @@ function removeImage() {
     document.getElementById('imagePreview').innerHTML = '';
 }
 
-// Copiar email al portapapeles
+// Compatibilidad - ya no necesario con FormSubmit.co
 function copiarEmail() {
-    const emailContent = document.getElementById('emailContent');
-    emailContent.select();
-    document.execCommand('copy');
-    showNotification('✅ Email copiado al portapapeles', 'success');
+    showNotification('Tu formulario será enviado directamente', 'info');
 }
 
 // Mostrar notificaciones
@@ -124,63 +121,17 @@ function showNotification(message, type = 'info') {
     }, 4000);
 }
 
-// Generar contenido del email
+// Ya no es necesario generar email manualmente - FormSubmit.co lo maneja
 function generarEmail() {
-    const formData = {
-        nombre: document.getElementById('nombre').value,
-        email: document.getElementById('email').value,
-        pais: document.getElementById('pais').value,
-        celular: document.getElementById('celular').value,
-        instagram: document.getElementById('instagram').value || 'No proporcionó',
-        tiktok: document.getElementById('tiktok').value || 'No proporcionó',
-        linkedin: document.getElementById('linkedin').value || 'No proporcionó',
-        otro: document.getElementById('otro').value || 'No proporcionó',
-        deseo: document.getElementById('deseo').value,
-        historia: document.getElementById('historia').value
-    };
-
-    const emailBody = `Hola UnDeseo,
-
-Me gustaría ser parte de UnDeseo compartiendo mi deseo con la comunidad.
-
-=== DATOS PERSONALES ===
-Nombre: ${formData.nombre}
-Email: ${formData.email}
-País/Ciudad: ${formData.pais}
-Celular: ${formData.celular}
-
-=== REDES SOCIALES ===
-Instagram: ${formData.instagram}
-TikTok: ${formData.tiktok}
-LinkedIn: ${formData.linkedin}
-Otra Red: ${formData.otro}
-
-=== MI DESEO ===
-${formData.deseo}
-
-=== MI HISTORIA ===
-${formData.historia}
-
----
-Enviado desde UnDeseo.site
-`;
-
-    return emailBody;
+    return '';
 }
 
-// Manejar envío del formulario
+// Manejar envío del formulario con FormSubmit.co
 document.getElementById('wishForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
     if (!validateStep(totalSteps)) {
+        e.preventDefault();
         return;
     }
-
-    // Generar el email
-    const emailContent = generarEmail();
-
-    // Mostrar el email en textarea
-    document.getElementById('emailContent').value = emailContent;
 
     // Mostrar sección de preview
     document.getElementById('emailPreview').style.display = 'block';
@@ -197,7 +148,8 @@ document.getElementById('wishForm').addEventListener('submit', function(e) {
         pais: document.getElementById('pais').value
     }));
 
-    showNotification('📋 Email preparado - cópialo y envía a enviar@undeseo.site', 'info');
+    showNotification('📬 Enviando tu deseo...', 'info');
+    // FormSubmit.co manejará el envío automáticamente
 });
 
 // Eliminar clase error cuando el usuario empieza a escribir
