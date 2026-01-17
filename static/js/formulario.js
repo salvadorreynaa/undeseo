@@ -57,9 +57,46 @@ function validateStep(step) {
 
     for (let fieldId of fieldsToCheck) {
         const field = document.getElementById(fieldId);
+        const label = field.previousElementSibling?.textContent || fieldId;
+        
+        // Validar que no esté vacío
         if (!field.value.trim()) {
             field.classList.add('error');
-            showNotification(`⚠️ Por favor completa: ${field.previousElementSibling.textContent}`, 'error');
+            showNotification(`⚠️ Por favor completa: ${label}`, 'error');
+            return false;
+        }
+
+        // Validación especial para email
+        if (fieldId === 'email') {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(field.value.trim())) {
+                field.classList.add('error');
+                showNotification('⚠️ Por favor ingresa un email válido', 'error');
+                return false;
+            }
+        }
+
+        // Validación especial para celular (al menos 7 dígitos)
+        if (fieldId === 'celular') {
+            const phoneRegex = /\d{7,}/;
+            if (!phoneRegex.test(field.value.replace(/\s/g, ''))) {
+                field.classList.add('error');
+                showNotification('⚠️ Por favor ingresa un número de celular válido (mínimo 7 dígitos)', 'error');
+                return false;
+            }
+        }
+
+        // Validación de longitud mínima para deseo (mínimo 10 caracteres)
+        if (fieldId === 'deseo' && field.value.trim().length < 10) {
+            field.classList.add('error');
+            showNotification('⚠️ Por favor describe tu deseo con más detalle (mínimo 10 caracteres)', 'error');
+            return false;
+        }
+
+        // Validación de longitud mínima para historia (mínimo 20 caracteres)
+        if (fieldId === 'historia' && field.value.trim().length < 20) {
+            field.classList.add('error');
+            showNotification('⚠️ Por favor cuéntanos tu historia con más detalle (mínimo 20 caracteres)', 'error');
             return false;
         }
     }
@@ -133,6 +170,9 @@ document.getElementById('wishForm').addEventListener('submit', function(e) {
         return;
     }
 
+    // No prevenir el evento - dejar que FormSubmit.co lo maneje
+    // e.preventDefault();
+
     // Mostrar sección de preview
     document.getElementById('emailPreview').style.display = 'block';
 
@@ -150,7 +190,7 @@ document.getElementById('wishForm').addEventListener('submit', function(e) {
 
     showNotification('📬 Enviando tu deseo...', 'info');
     // FormSubmit.co manejará el envío automáticamente
-});
+}, false);
 
 // Eliminar clase error cuando el usuario empieza a escribir
 document.querySelectorAll('input, textarea').forEach(field => {
