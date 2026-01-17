@@ -79,6 +79,38 @@
       "foto": null,
       "categoria": "Tecnología",
       "fechaEnvio": "2026-01-17"
+    },
+    {
+      "id": "miguel-angel-garcia-ochoa",
+      "nombre": "Miguel Angel Garcia Ochoa",
+      "email": "nike309512@gmail.com",
+      "pais": "Pucallpa, Perú",
+      "celular": "934699941",
+      "instagram": "No proporcionó",
+      "tiktok": "No proporcionó",
+      "linkedin": "No proporcionó",
+      "otro": "No proporcionó",
+      "deseo": "Hacer mi negocio, y salir adelante, con mi familia",
+      "historia": "Soy un chico de 30 años que estudio contabilidad, pero las puertas del trabajo están cerradas, he hice una pequeña bodeguita, para poder sobresalir, y quiero hacer crecer mi negocio, con fe se que se puede.",
+      "foto": null,
+      "categoria": "Negocios",
+      "fechaEnvio": "2026-01-17"
+    },
+    {
+      "id": "rey-mario",
+      "nombre": "Rey Mario",
+      "email": "drakedvasquezruiz@gmail.com",
+      "pais": "Lima, Perú",
+      "celular": "924011942",
+      "instagram": "Reykmart",
+      "tiktok": "No proporcionó",
+      "linkedin": "No proporcionó",
+      "otro": "No proporcionó",
+      "deseo": "Tener un studio una carrera universitaria y trabajar para sacar adelante a mi familia y que Stan en la selva y tener una casa propia",
+      "historia": "Es importante para mí porque quiero ayudar a mi familia quiero salir adelante tener un buen estudio una buena casa para poder ayudarlos ahí poder tenerlos y apoyarlos por eso quiero tener mi estudio tener mucho dinero y también así poder ayudar a muchas personas que veo en las calles que necesitan también así como yo",
+      "foto": null,
+      "categoria": "Educación",
+      "fechaEnvio": "2026-01-17"
     }
   ]
 }
