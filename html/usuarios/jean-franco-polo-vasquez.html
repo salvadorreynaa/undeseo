@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Franco Polo Vasquez - UnDeseo</title>
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <style>
+        .profile-hero {
+            background: linear-gradient(135deg, var(--primary-color), #e91e63);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid white;
+        }
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .profile-info p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            opacity: 0.95;
+        }
+        .profile-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .meta-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .meta-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .profile-content {
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .section p {
+            line-height: 1.8;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        .cta-section {
+            background: #e8f5e9;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .support-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-support {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary-support {
+            background: var(--primary-color);
+            color: white;
+        }
+        .btn-primary-support:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+        .btn-secondary-support {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-secondary-support:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="../../index.html" style="color: white; text-decoration: none;">UnDeseo</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="../about.html">Sobre el Proyecto</a></li>
+                    <li><a href="../deseos.html">Deseos</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO DEL PERFIL -->
+    <section class="profile-hero">
+        <div class="profile-header">
+            <div class="profile-avatar">📱</div>
+            <div class="profile-info">
+                <h1>Jean Franco Polo Vasquez</h1>
+                <p>📍 Julcan, Perú</p>
+            </div>
+            <div class="profile-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Deseo</span>
+                    <span class="meta-value">💻 Tecnología</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Ubicación</span>
+                    <span class="meta-value">Perú</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <div class="profile-content">
+            <!-- DESEO -->
+            <div class="section">
+                <h2>🎯 Mi Deseo</h2>
+                <p>Comprarme un celular</p>
+            </div>
+
+            <!-- HISTORIA -->
+            <div class="section">
+                <h2>📖 Mi Historia</h2>
+                <p>Trabajaba para ganar dinero pero ahora quiero sobresalir entre las demás personas y quiero ayudar a mis padres.</p>
+            </div>
+
+            <!-- CTA DE APOYO -->
+            <div class="cta-section">
+                <h3>¿Quieres ayudar a Jean a lograr su deseo?</h3>
+                <p>Si deseas contribuir económicamente o con oportunidades, contáctanos:</p>
+                <div class="support-buttons">
+                    <a href="../formularios/formulario-apoyar.html" class="btn-support btn-primary-support">
+                        💰 Apoyar Económicamente
+                    </a>
+                    <a href="../deseos.html" class="btn-support btn-secondary-support">
+                        ← Volver a Deseos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UnDeseo</h4>
+                    <p>Una plataforma para compartir deseos y objetivos personales</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="../about.html">Sobre</a></li>
+                        <li><a href="../deseos.html">Deseos</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>General: <a href="mailto:contacto@undeseo.site">contacto@undeseo.site</a></p>
+                    <p>Enviar Deseo: <a href="mailto:enviar@undeseo.site">enviar@undeseo.site</a></p>
+                    <p>Apoyar: <a href="mailto:apoyar@undeseo.site">apoyar@undeseo.site</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UnDeseo. Todos los derechos reservados. | Sitio en desarrollo</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

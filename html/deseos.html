@@ -57,20 +57,21 @@
         <!-- GRID DE DESEOS -->
         <section class="wishes-section">
             <div class="container">
-                <div class="wishes-grid">
-                    <!-- Los deseos se agregarán aquí -->
+                <div class="wishes-grid" id="wishesGrid">
+                    <!-- Los deseos se cargarán aquí dinámicamente -->
+                    <!-- Card para agregar nuevo deseo -->
                     <div class="wish-card placeholder">
                         <div class="wish-image-placeholder"></div>
                         <div class="wish-content">
                             <h3>Comparte tu deseo</h3>
                             <p class="wish-country">¿Cuál es tu objetivo?</p>
                             <p class="wish-description">Contacta con el administrador para agregar tu deseo a la plataforma</p>
-                            <a href="enviar-deseo.html" class="btn-view-profile">Enviar</a>
+                            <a href="formularios/formulario-deseo.html" class="btn-view-profile">Enviar</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="empty-state">
+                <div class="empty-state" id="emptyState" style="display: none;">
                     <div class="empty-icon">🌟</div>
                     <h3>Los deseos estarán aquí pronto</h3>
                     <p>Actualmente estamos recopilando historias auténticas. Sé uno de los primeros en compartir tu deseo.</p>
@@ -109,5 +110,71 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Cargar deseos desde JSON
+        async function loadWishes() {
+            try {
+                const response = await fetch('../static/data/deseos.json');
+                const data = await response.json();
+                const wishesGrid = document.getElementById('wishesGrid');
+                const emptyState = document.getElementById('emptyState');
+
+                if (data.deseos && data.deseos.length > 0) {
+                    emptyState.style.display = 'none';
+                    
+                    // Guardar el placeholder si existe
+                    const placeholder = wishesGrid.querySelector('.placeholder');
+                    
+                    // Limpiar grid pero mantener placeholder
+                    wishesGrid.innerHTML = '';
+                    
+                    // Agregar de vuelta el placeholder
+                    if (placeholder) {
+                        wishesGrid.appendChild(placeholder);
+                    }
+
+                    data.deseos.forEach(deseo => {
+                        const wishCard = document.createElement('div');
+                        wishCard.className = 'wish-card';
+                        
+                        // Determinar emoji según categoría
+                        const emojiMap = {
+                            'Viajes': '✈️',
+                            'Educación': '📚',
+                            'Salud': '🏥',
+                            'Negocios': '💼',
+                            'Creatividad': '🎨',
+                            'Otro': '⭐'
+                        };
+                        
+                        const emoji = emojiMap[deseo.categoria] || '⭐';
+                        
+                        wishCard.innerHTML = `
+                            <div class="wish-image-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+                                ${emoji}
+                            </div>
+                            <div class="wish-content">
+                                <h3>${deseo.nombre}</h3>
+                                <p class="wish-country">📍 ${deseo.pais}</p>
+                                <p class="wish-description">${deseo.deseo}</p>
+                                <a href="usuarios/${deseo.id}.html" class="btn-view-profile">Ver Perfil Completo</a>
+                            </div>
+                        `;
+                        
+                        wishesGrid.appendChild(wishCard);
+                    });
+                } else {
+                    emptyState.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error cargando deseos:', error);
+                document.getElementById('emptyState').style.display = 'block';
+            }
+        }
+
+        // Cargar deseos cuando se carga la página
+        document.addEventListener('DOMContentLoaded', loadWishes);
+    </script>
 </body>
 </html>

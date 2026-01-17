@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoyar - UnDeseo</title>
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <style>
+        .support-hero {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .support-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .support-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .btn-submit-support {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-submit-support:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+        .btn-submit-support:active {
+            transform: translateY(0);
+        }
+        .info-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #4caf50;
+        }
+        .info-box h3 {
+            color: #2e7d32;
+            margin: 0 0 0.5rem 0;
+        }
+        .info-box p {
+            margin: 0;
+            color: #558b2f;
+        }
+        .required {
+            color: #d32f2f;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="../../index.html" style="color: white; text-decoration: none;">UnDeseo</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="../about.html">Sobre el Proyecto</a></li>
+                    <li><a href="../deseos.html">Deseos</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="support-hero">
+        <div class="container">
+            <h2>💚 Apoya a Alguien a Lograr su Deseo</h2>
+            <p>Tu apoyo económico puede cambiar vidas. Completa este formulario para comenzar.</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <div class="support-container">
+            <!-- INFO BOX -->
+            <div class="info-box">
+                <h3>🎯 ¿Por qué apoyar?</h3>
+                <p>En UnDeseo creemos que el apoyo comunitario puede transformar vidas. Tu contribución ayudará a personas a cumplir sus sueños y objetivos personales.</p>
+            </div>
+
+            <!-- FORMULARIO -->
+            <form class="support-form" action="https://formsubmit.co/apoyar@undeseo.site" method="POST">
+                <!-- Campos ocultos para FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://undeseo.site/html/success.html">
+                <input type="hidden" name="_subject" value="Nueva solicitud de apoyo económico">
+
+                <h3 style="margin-top: 0; color: var(--primary-color);">Tu Información</h3>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo <span class="required">*</span></label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pais">País <span class="required">*</span></label>
+                        <input type="text" id="pais" name="pais" placeholder="Ej: Perú" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad <span class="required">*</span></label>
+                        <input type="text" id="ciudad" name="ciudad" placeholder="Ej: Lima" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Número de Teléfono <span class="required">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: +51 999 999 999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edad">Edad <span class="required">*</span></label>
+                        <input type="number" id="edad" name="edad" placeholder="Ej: 30" min="18" max="120" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">¿Cómo y por qué quieres apoyar? <span class="required">*</span></label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos más sobre tu intención de apoyo... ¿Qué cantidad consideras? ¿Cómo deseas colaborar?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit-support">💰 Enviar Solicitud de Apoyo</button>
+            </form>
+
+            <div style="margin-top: 2rem; text-align: center; color: var(--text-light);">
+                <p>¿Preguntas? Contáctanos en <a href="mailto:contacto@undeseo.site" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">contacto@undeseo.site</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UnDeseo</h4>
+                    <p>Una plataforma para compartir deseos y objetivos personales</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="../about.html">Sobre</a></li>
+                        <li><a href="../deseos.html">Deseos</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>General: <a href="mailto:contacto@undeseo.site">contacto@undeseo.site</a></p>
+                    <p>Apoyar: <a href="mailto:apoyar@undeseo.site">apoyar@undeseo.site</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UnDeseo. Todos los derechos reservados. | Sitio en desarrollo</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
