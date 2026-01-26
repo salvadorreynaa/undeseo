@@ -6,11 +6,17 @@
     <title>María Juarez - UnDeseo</title>
     <link rel="stylesheet" href="../../static/css/styles.css">
     <style>
-        .profile-hero {
-            background: linear-gradient(135deg, var(--primary-color), #e91e63);
+        .profile-hero-new {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             color: white;
             padding: 3rem 2rem;
             text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .profile-header {
             display: flex;
@@ -81,14 +87,14 @@
             font-size: 1.05rem;
         }
         .cta-section {
-            background: #e8f5e9;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 2rem;
             border-radius: 8px;
             text-align: center;
             margin: 3rem 0;
         }
         .cta-section h3 {
-            color: var(--primary-color);
+            color: white;
             margin-bottom: 1rem;
         }
         .support-buttons {
@@ -124,25 +130,20 @@
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../../index.html" style="color: white; text-decoration: none;">UnDeseo</a></h1>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="../../index.html">Inicio</a></li>
-                    <li><a href="../deseos.html">Deseos</a></li>
-                    <li><a href="../about.html">Sobre el Proyecto</a></li>
-                    <li><a href="../contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <!-- NAVEGACIÓN FLOTANTE -->
+    <nav class="floating-nav" id="floatingNav">
+        <a href="../../index.html" class="logo">✨ UnDeseo</a>
+        <ul class="floating-nav-links">
+            <li><a href="../../index.html">Inicio</a></li>
+            <li><a href="../deseos.html">Deseos</a></li>
+            <li><a href="../about.html">Sobre</a></li>
+            <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+        <a href="../formularios/formulario-deseo.html" class="cta-nav">Comparte tu Deseo</a>
+    </nav>
 
     <!-- HERO DEL PERFIL -->
-    <section class="profile-hero">
+    <section class="profile-hero-new">
         <div class="profile-header">
             <div class="profile-avatar">🐾</div>
             <div class="profile-info">
@@ -193,34 +194,47 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>UnDeseo</h4>
-                    <p>Una plataforma para compartir deseos y objetivos personales</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="../../index.html">Inicio</a></li>
-                        <li><a href="../about.html">Sobre</a></li>
-                        <li><a href="../deseos.html">Deseos</a></li>
-                        <li><a href="../contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p>General: <a href="mailto:contacto@undeseo.site">contacto@undeseo.site</a></p>
-                    <p>Enviar Deseo: <a href="mailto:enviar@undeseo.site">enviar@undeseo.site</a></p>
-                    <p>Apoyar: <a href="mailto:apoyar@undeseo.site">apoyar@undeseo.site</a></p>
-                </div>
+    <!-- FOOTER MEJORADO -->
+    <footer class="footer-new">
+        <div class="footer-content-new">
+            <div class="footer-section-new">
+                <h4>✨ UnDeseo</h4>
+                <p>Una plataforma donde los sueños se hacen realidad. Porque tu deseo merece ser escuchado.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 UnDeseo. Todos los derechos reservados. | Sitio en desarrollo</p>
+            <div class="footer-section-new">
+                <h4>Enlaces</h4>
+                <p><a href="../../index.html">Inicio</a></p>
+                <p><a href="../deseos.html">Explorar Deseos</a></p>
+                <p><a href="../about.html">Sobre Nosotros</a></p>
+                <p><a href="../contacto.html">Contacto</a></p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Apoya</h4>
+                <p><a href="../formularios/formulario-deseo.html">Compartir Deseo</a></p>
+                <p><a href="../formularios/formulario-apoyar.html">Apoyo Económico</a></p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Contacto</h4>
+                <p><a href="mailto:contacto@undeseo.site">📧 contacto@undeseo.site</a></p>
+                <p><a href="mailto:enviar@undeseo.site">📤 enviar@undeseo.site</a></p>
+                <p><a href="mailto:apoyar@undeseo.site">💰 apoyar@undeseo.site</a></p>
             </div>
         </div>
+        <div class="footer-bottom-new">
+            <p>&copy; 2026 UnDeseo - Porque los sueños merecen apoyo. | Revolucionando la solidaridad digital 🚀</p>
+        </div>
     </footer>
+
+    <script>
+        // Efecto de scroll en nav flotante
+        const floatingNav = document.getElementById('floatingNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                floatingNav.classList.add('scrolled');
+            } else {
+                floatingNav.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -7,109 +7,48 @@
     <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><a href="../index.html" style="color: white; text-decoration: none;">UnDeseo</a></h1>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="deseos.html">Deseos</a></li>
-                    <li><a href="about.html">Sobre el Proyecto</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <!-- NAVEGACIÓN FLOTANTE -->
+    <nav class="floating-nav" id="floatingNav">
+        <a href="../index.html" class="logo">✨ UnDeseo</a>
+        <ul class="floating-nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="deseos.html">Deseos</a></li>
+            <li><a href="about.html">Sobre</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <a href="formularios/formulario-deseo.html" class="cta-nav">Comparte tu Deseo</a>
+    </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main>
-        <!-- HERO SECTION -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Explora Deseos y Objetivos</h2>
-                    <p>Descubre las historias de personas que persiguen sus sueños</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FILTROS Y BÚSQUEDA -->
-        <section class="search-section">
-            <div class="container">
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar deseo, usuario o país..." class="search-input">
-                    <button class="search-button">🔍 Buscar</button>
-                </div>
-                <div class="filter-tags">
-                    <span class="filter-tag">Todos</span>
-                    <span class="filter-tag">Educación</span>
-                    <span class="filter-tag">Salud</span>
-                    <span class="filter-tag">Viajes</span>
-                    <span class="filter-tag">Negocios</span>
-                    <span class="filter-tag">Creatividad</span>
+        <!-- HERO SECTION CON GRADIENTE -->
+        <section class="hero-new">
+            <div class="hero-new-content">
+                <h1>Explora Deseos y Objetivos</h1>
+                <p>Descubre las historias de personas que persiguen sus sueños y aprende cómo apoyarlos</p>
+                <div>
+                    <a href="formularios/formulario-deseo.html" class="cta-primary">🚀 Comparte tu Deseo</a>
+                    <a href="#deseos" class="cta-secondary">👀 Ver Deseos</a>
                 </div>
             </div>
         </section>
 
         <!-- GRID DE DESEOS -->
-        <section class="wishes-section">
-            <div class="container">
-                <div class="wishes-grid" id="wishesGrid">
-                    <!-- Los deseos se cargarán aquí dinámicamente -->
-                    <!-- Card para agregar nuevo deseo -->
-                    <div class="wish-card placeholder">
-                        <div class="wish-image-placeholder"></div>
-                        <div class="wish-content">
-                            <h3>Comparte tu deseo</h3>
-                            <p class="wish-country">¿Cuál es tu objetivo?</p>
-                            <p class="wish-description">Contacta con el administrador para agregar tu deseo a la plataforma</p>
-                            <a href="formularios/formulario-deseo.html" class="btn-view-profile">Enviar</a>
-                        </div>
-                    </div>
-                </div>
+        <section class="categories-section" id="deseos">
+            <h2 class="section-title">Todos los Deseos</h2>
+            <p class="section-subtitle">Historias reales de personas como tú que merecen ser apoyadas</p>
+            <div class="wishes-grid" id="wishesGrid">
+                <!-- Los deseos se cargarán aquí dinámicamente -->
+            </div>
 
-                <div class="empty-state" id="emptyState" style="display: none;">
-                    <div class="empty-icon">🌟</div>
-                    <h3>Los deseos estarán aquí pronto</h3>
-                    <p>Actualmente estamos recopilando historias auténticas. Sé uno de los primeros en compartir tu deseo.</p>
-                    <a href="../index.html#contacto" class="cta-button">Comparte tu Deseo</a>
-                </div>
+            <div class="empty-state" id="emptyState" style="display: none; text-align: center; padding: 4rem 2rem;">
+                <div class="empty-icon" style="font-size: 4rem; margin-bottom: 1rem;">🌟</div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Los deseos estarán aquí pronto</h3>
+                <p style="color: var(--text-light); margin-bottom: 2rem;">Actualmente estamos recopilando historias auténticas. Sé uno de los primeros en compartir tu deseo.</p>
+                <a href="formularios/formulario-deseo.html" class="cta-primary">Comparte tu Deseo</a>
             </div>
         </section>
     </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>UnDeseo</h4>
-                    <p>Una plataforma para compartir deseos y objetivos personales</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="about.html">Sobre</a></li>
-                        <li><a href="deseos.html">Deseos</a></li>
-                        <li><a href="../index.html#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p>General: <a href="mailto:contacto@undeseo.site">contacto@undeseo.site</a></p>
-                    <p>Enviar Deseo: <a href="mailto:enviar@undeseo.site">enviar@undeseo.site</a></p>
-                    <p>Apoyar: <a href="mailto:apoyar@undeseo.site">apoyar@undeseo.site</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 UnDeseo. Todos los derechos reservados. | Sitio en desarrollo</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Cargar deseos desde JSON
@@ -122,43 +61,23 @@
 
                 if (data.deseos && data.deseos.length > 0) {
                     emptyState.style.display = 'none';
-                    
-                    // Guardar el placeholder si existe
-                    const placeholder = wishesGrid.querySelector('.placeholder');
-                    
-                    // Limpiar grid pero mantener placeholder
                     wishesGrid.innerHTML = '';
-                    
-                    // Agregar de vuelta el placeholder
-                    if (placeholder) {
-                        wishesGrid.appendChild(placeholder);
-                    }
 
                     data.deseos.forEach(deseo => {
                         const wishCard = document.createElement('div');
                         wishCard.className = 'wish-card';
                         
-                        // Determinar emoji según categoría
-                        const emojiMap = {
-                            'Viajes': '✈️',
-                            'Educación': '📚',
-                            'Salud': '🏥',
-                            'Negocios': '💼',
-                            'Creatividad': '🎨',
-                            'Otro': '⭐'
-                        };
-                        
-                        const emoji = emojiMap[deseo.categoria] || '⭐';
-                        
                         wishCard.innerHTML = `
-                            <div class="wish-image-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
-                                ${emoji}
+                            <div class="wish-card-header">
+                                <h3 class="wish-card-title">${deseo.nombre}</h3>
+                                <span class="wish-card-category">${deseo.categoria}</span>
                             </div>
-                            <div class="wish-content">
-                                <h3>${deseo.nombre}</h3>
-                                <p class="wish-country">📍 ${deseo.pais}</p>
-                                <p class="wish-description">${deseo.deseo}</p>
-                                <a href="usuarios/${deseo.id}.html" class="btn-view-profile">Ver Perfil Completo</a>
+                            <div class="wish-card-body">
+                                <p class="wish-card-description">${deseo.deseo}</p>
+                                <div class="wish-card-meta">
+                                    <span class="wish-card-location">📍 ${deseo.pais}</span>
+                                </div>
+                                <a href="usuarios/${deseo.id}.html" class="wish-card-cta">Ver Perfil Completo</a>
                             </div>
                         `;
                         
@@ -173,8 +92,48 @@
             }
         }
 
-        // Cargar deseos cuando se carga la página
         document.addEventListener('DOMContentLoaded', loadWishes);
+
+        // Efecto de scroll en nav flotante
+        const floatingNav = document.getElementById('floatingNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                floatingNav.classList.add('scrolled');
+            } else {
+                floatingNav.classList.remove('scrolled');
+            }
+        });
     </script>
+
+    <!-- FOOTER MEJORADO -->
+    <footer class="footer-new">
+        <div class="footer-content-new">
+            <div class="footer-section-new">
+                <h4>✨ UnDeseo</h4>
+                <p>Una plataforma donde los sueños se hacen realidad. Porque tu deseo merece ser escuchado.</p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Enlaces</h4>
+                <p><a href="../index.html">Inicio</a></p>
+                <p><a href="deseos.html">Explorar Deseos</a></p>
+                <p><a href="about.html">Sobre Nosotros</a></p>
+                <p><a href="contacto.html">Contacto</a></p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Apoya</h4>
+                <p><a href="formularios/formulario-deseo.html">Compartir Deseo</a></p>
+                <p><a href="formularios/formulario-apoyar.html">Apoyo Económico</a></p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Contacto</h4>
+                <p><a href="mailto:contacto@undeseo.site">📧 contacto@undeseo.site</a></p>
+                <p><a href="mailto:enviar@undeseo.site">📤 enviar@undeseo.site</a></p>
+                <p><a href="mailto:apoyar@undeseo.site">💰 apoyar@undeseo.site</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom-new">
+            <p>&copy; 2026 UnDeseo - Porque los sueños merecen apoyo. | Revolucionando la solidaridad digital 🚀</p>
+        </div>
+    </footer>
 </body>
 </html>
