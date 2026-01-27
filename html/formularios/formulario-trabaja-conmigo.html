@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabaja Conmigo - UnDeseo</title>
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group small {
+            display: block;
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-cancel {
+            background: #f1f5f9;
+            color: #333;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-cancel:hover {
+            background: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVEGACIÓN FLOTANTE -->
+    <nav class="floating-nav" id="floatingNav">
+        <a href="../../index.html" class="logo">✨ UnDeseo</a>
+        <ul class="floating-nav-links">
+            <li><a href="../../index.html">Inicio</a></li>
+            <li><a href="../deseos.html">Deseos</a></li>
+            <li><a href="../about.html">Sobre</a></li>
+            <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+        <a href="formulario-deseo.html" class="cta-nav">Comparte tu Deseo</a>
+    </nav>
+
+    <!-- HERO SECTION CON GRADIENTE -->
+    <section class="hero-new">
+        <div class="hero-new-content">
+            <h1>Trabaja Con Nosotros</h1>
+            <p>¿Quieres ser parte del equipo UnDeseo? Cuéntanos sobre ti</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main style="padding: 4rem 2rem; background: #f8fafc;">
+        <div class="form-container">
+            <h2 style="text-align: center; color: #333; margin-bottom: 2rem;">Formulario de Aplicación</h2>
+
+            <!-- FORMULARIO -->
+            <form id="workForm" action="https://formsubmit.co/contacto@undeseo.site" method="POST" enctype="multipart/form-data">
+                <!-- Campos ocultos para FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://undeseo.site/html/success.html">
+                <input type="hidden" name="_autorespond" value="false">
+                <input type="hidden" name="_subject" value="Nueva Aplicación - Trabaja Conmigo">
+
+                <!-- NOMBRE COMPLETO -->
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
+
+                <!-- CORREO ELECTRÓNICO -->
+                <div class="form-group">
+                    <label for="email">Correo Electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="tu@ejemplo.com" required>
+                </div>
+
+                <!-- EDAD -->
+                <div class="form-group">
+                    <label for="edad">Edad *</label>
+                    <input type="number" id="edad" name="edad" placeholder="Ej: 25" min="16" max="100" required>
+                </div>
+
+                <!-- CELULAR -->
+                <div class="form-group">
+                    <label for="celular">Número de Celular *</label>
+                    <input type="tel" id="celular" name="celular" placeholder="Ej: +51 999 999 999" required>
+                </div>
+
+                <!-- CUÉNTAME SOBRE TI -->
+                <div class="form-group">
+                    <label for="aboutyou">Cuéntame Sobre Ti *</label>
+                    <textarea id="aboutyou" name="aboutyou" placeholder="Comparte tu experiencia, habilidades, por qué quieres trabajar con nosotros..." required></textarea>
+                    <small>Mínimo 20 caracteres</small>
+                </div>
+
+                <!-- CV (OPCIONAL) -->
+                <div class="form-group">
+                    <label for="cv">Sube tu CV (Opcional)</label>
+                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
+                    <small>Formatos permitidos: PDF, DOC, DOCX. Tamaño máximo: 5MB</small>
+                </div>
+
+                <!-- BOTONES -->
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">📤 Enviar Solicitud</button>
+                    <a href="../../index.html" class="btn-cancel">← Volver</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Efecto de scroll en nav flotante
+        const floatingNav = document.getElementById('floatingNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                floatingNav.classList.add('scrolled');
+            } else {
+                floatingNav.classList.remove('scrolled');
+            }
+        });
+
+        // Validación del formulario
+        const workForm = document.getElementById('workForm');
+        workForm.addEventListener('submit', (e) => {
+            const aboutYou = document.getElementById('aboutyou').value;
+            if (aboutYou.length < 20) {
+                e.preventDefault();
+                alert('Por favor, cuéntame más sobre ti (mínimo 20 caracteres)');
+            }
+        });
+    </script>
+
+    <!-- FOOTER MEJORADO -->
+    <footer class="footer-new">
+        <div class="footer-content-new">
+            <div class="footer-section-new">
+                <h4>✨ UnDeseo</h4>
+                <p>Una plataforma donde los sueños se hacen realidad. Porque tu deseo merece ser escuchado.</p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Enlaces</h4>
+                <p><a href="../../index.html">Inicio</a></p>
+                <p><a href="../deseos.html">Explorar Deseos</a></p>
+                <p><a href="../about.html">Sobre Nosotros</a></p>
+                <p><a href="../contacto.html">Contacto</a></p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Apoya</h4>
+                <p><a href="formulario-deseo.html">Compartir Deseo</a></p>
+                <p><a href="formulario-apoyar.html">Apoyo Económico</a></p>
+            </div>
+            <div class="footer-section-new">
+                <h4>Contacto</h4>
+                <p><a href="mailto:contacto@undeseo.site">📧 contacto@undeseo.site</a></p>
+                <p><a href="mailto:enviar@undeseo.site">📤 enviar@undeseo.site</a></p>
+                <p><a href="mailto:apoyar@undeseo.site">💰 apoyar@undeseo.site</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom-new">
+            <p>&copy; 2026 UnDeseo - Porque los sueños merecen apoyo. | Revolucionando la solidaridad digital 🚀</p>
+        </div>
+    </footer>
+</body>
+</html>

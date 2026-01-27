@@ -191,6 +191,22 @@
       "foto": null,
       "categoria": "Salud",
       "fechaEnvio": "2026-01-26"
+    },
+    {
+      "id": "milagros-chero-martinez",
+      "nombre": "Milagros Chero Martínez",
+      "email": "milacm.08@gmail.com",
+      "pais": "Piura, Perú",
+      "celular": "943437387",
+      "instagram": "Milxgros._.14",
+      "tiktok": "No proporcionó",
+      "linkedin": "No proporcionó",
+      "otro": "No proporcionó",
+      "deseo": "Me pueden dar 500 soles para mis estudios",
+      "historia": "No tengo el suficiente dinero para pagar mis estudios y mis padres están enfermos",
+      "foto": null,
+      "categoria": "Educación",
+      "fechaEnvio": "2026-01-27"
     }
   ]
 }

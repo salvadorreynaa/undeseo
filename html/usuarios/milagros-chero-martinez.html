@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rey Mario - UnDeseo</title>
+    <title>Milagros Chero Martínez - UnDeseo</title>
     <link rel="stylesheet" href="../../static/css/styles.css">
     <style>
         .profile-hero-new {
@@ -43,6 +43,7 @@
         .profile-info h1 {
             font-size: 2.5rem;
             margin: 0;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         .profile-info p {
             font-size: 1.1rem;
@@ -95,6 +96,7 @@
             border-radius: 8px;
             text-align: center;
             margin: 3rem 0;
+            color: white;
         }
         .cta-section h3 {
             color: white;
@@ -107,28 +109,38 @@
             flex-wrap: wrap;
         }
         .btn-support {
-            padding: 0.75rem 1.5rem;
+            background: white;
+            color: #667eea;
+            padding: 0.8rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-        .btn-primary-support {
-            background: var(--primary-color);
+        .btn-support:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .social-link {
+            background: rgba(255, 255, 255, 0.2);
             color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid white;
         }
-        .btn-primary-support:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
-        }
-        .btn-secondary-support {
+        .social-link:hover {
             background: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-        .btn-secondary-support:hover {
-            background: var(--primary-color);
-            color: white;
+            color: #667eea;
         }
     </style>
 </head>
@@ -148,10 +160,10 @@
     <!-- HERO DEL PERFIL -->
     <section class="profile-hero-new">
         <div class="profile-header">
-            <div class="profile-avatar">🎓</div>
+            <div class="profile-avatar">📚</div>
             <div class="profile-info">
-                <h1>Rey Mario</h1>
-                <p>📍 Lima, Perú</p>
+                <h1>Milagros Chero Martínez</h1>
+                <p>📍 Piura, Perú</p>
             </div>
             <div class="profile-meta">
                 <div class="meta-item">
@@ -159,43 +171,51 @@
                     <span class="meta-value">🎓 Educación</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Ubicación</span>
-                    <span class="meta-value">Perú</span>
+                    <span class="meta-label">Monto</span>
+                    <span class="meta-value">S/. 500</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- CONTENIDO DEL PERFIL -->
     <main>
         <div class="profile-content">
             <!-- DESEO -->
             <div class="section">
-                <h2>🎯 Mi Deseo</h2>
-                <p>Tener un studio una carrera universitaria y trabajar para sacar adelante a mi familia y que Stan en la selva y tener una casa propia</p>
+                <h2>Mi Deseo</h2>
+                <p>Me pueden dar 500 soles para mis estudios</p>
             </div>
 
             <!-- HISTORIA -->
             <div class="section">
-                <h2>📖 Mi Historia</h2>
-                <p>Es importante para mí porque quiero ayudar a mi familia quiero salir adelante tener un buen estudio una buena casa para poder ayudarlos ahí poder tenerlos y apoyarlos por eso quiero tener mi estudio tener mucho dinero y también así poder ayudar a muchas personas que veo en las calles que necesitan también así como yo</p>
+                <h2>Mi Historia</h2>
+                <p>No tengo el suficiente dinero para pagar mis estudios y mis padres están enfermos. Estoy en una situación difícil pero no pierdo la esperanza de poder continuar con mi educación. Cualquier apoyo que reciba será de gran ayuda para mi familia y para mí.</p>
             </div>
 
-            <!-- CTA DE APOYO -->
+            <!-- CTA -->
             <div class="cta-section">
-                <h3>¿Quieres ayudar a Rey Mario a lograr su deseo?</h3>
-                <p>Si deseas contribuir económicamente o con oportunidades, contáctanos:</p>
+                <h3>¿Quieres Apoyar Este Deseo?</h3>
+                <p style="margin: 1rem 0;">Tu apoyo puede hacer la diferencia en la vida de Milagros. Cada contribución, por pequeña que sea, es valiosa.</p>
                 <div class="support-buttons">
-                    <a href="../formularios/formulario-apoyar.html" class="btn-support btn-primary-support">
-                        💰 Apoyar Económicamente
-                    </a>
-                    <a href="../deseos.html" class="btn-support btn-secondary-support">
-                        ← Volver a Deseos
-                    </a>
+                    <a href="mailto:apoyar@undeseo.site?subject=Apoyo%20para%20Milagros%20Chero%20Martínez" class="btn-support">💝 Apoyar</a>
+                    <a href="../deseos.html" class="btn-support">👀 Ver Otros Deseos</a>
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+        // Efecto de scroll en nav flotante
+        const floatingNav = document.getElementById('floatingNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                floatingNav.classList.add('scrolled');
+            } else {
+                floatingNav.classList.remove('scrolled');
+            }
+        });
+    </script>
 
     <!-- FOOTER MEJORADO -->
     <footer class="footer-new">
@@ -227,17 +247,5 @@
             <p>&copy; 2026 UnDeseo - Porque los sueños merecen apoyo. | Revolucionando la solidaridad digital 🚀</p>
         </div>
     </footer>
-
-    <script>
-        // Efecto de scroll en nav flotante
-        const floatingNav = document.getElementById('floatingNav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                floatingNav.classList.add('scrolled');
-            } else {
-                floatingNav.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
